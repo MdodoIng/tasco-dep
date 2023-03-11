@@ -16,6 +16,7 @@ const index = () => {
       <meta name="application-name" content="Application Name" />
 
       <meta name="theme-color" content="#4285f4" />
+      <meta name="background_color" content="#4285f4" />
 
       <meta name="description" content="A description of the page" />
 
@@ -52,6 +53,22 @@ const index = () => {
       <meta name="geo.placename" content="city/town" />
 
       <meta name="monetization" content="$paymentpointer.example" />
+
+      <link rel="icon" sizes="192x192" href="../assets/icon.png" />
+
+      <link rel="apple-touch-icon" href="../assets/icon.png" />
+
+      <link rel="mask-icon" href="../assets/icon.png" color="blue" />
+      <meta property="fb:app_id" content="123456789"/>
+<meta property="og:url" content="https://example.com/page.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Content Title"/>
+<meta property="og:image" content="https://example.com/image.jpg" />
+<meta property="og:image:alt" content="A description of what is in the image (not a caption)" />
+<meta property="og:description" content="Description Here" />
+<meta property="og:site_name" content="Site Name"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="article:author" content=""/>
       <div className="flex items-center justify-center flex-col m-8 h-screen">
         <MainImage
           src={logo}
