@@ -83,7 +83,7 @@ const index = () => {
           width={100}
           height={100}
           alt="logo"
-          className="object-contain object-center w-auto h-20"
+          className="object-contain object-center w-auto sm:h-20 h-10"
         />
         <MainImage
           src={heroImage}
