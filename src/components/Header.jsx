@@ -5,7 +5,7 @@ import logo from "../assets/logo.svg";
 
 const Header = () => {
   return (
-    <div className="main_padding fixed top-10 w-full flex items-center justify-between select-none">
+    <div className="main_padding fixed top-10 w-full flex items-center justify-between select-none z-[500]">
       <div
         onClick={() => typeof window !== undefined && window.scrollTo(0, 0)}
         className="cursor-pointer"
