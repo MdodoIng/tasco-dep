@@ -15,7 +15,9 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@babel/core": "^7.21.4",
     "@mdx-js/react": "^2.3.0",
+    "babel-eslint": "^10.1.0",
     "babel-plugin-syntax-flow": "^6.18.0",
     "gatsby": "^5.8.1",
     "gatsby-omni-font-loader": "^2.0.2",
