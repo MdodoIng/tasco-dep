@@ -32,7 +32,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/assets/icon.png",
+        icon: "src/assets/logo.svg",
       },
     },
     {
