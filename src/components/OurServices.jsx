@@ -300,7 +300,7 @@ const OurServices = () => {
                 </span>
 
                 <ul
-                  className={`pl-6 list-disc gap-1 grid h-max mt-2 overflow-hidden duration-500 ease-in ${
+                  className={`pl-6 list-disc gap-1 grid h-max mt-2 overflow-hidden duration-300 ${
                     isSelected === item.title ? "max-h-96" : " max-h-0"
                   }`}
                 >
@@ -315,15 +315,17 @@ const OurServices = () => {
                 </ul>
               </div>
 
-              <div className="rounded-lg overflow-hidden">
+              <div className="grid h-full relative">
                 <MainImage
                   src={item.secondPicture}
                   alt="image"
                   width={100}
                   height={100}
                   loading="lazy"
-                  className={`object-cover w-full h-full duration-500  ${
-                    isSelected === item.title ? "max-h-96" : " max-h-0"
+                  className={`object-cover w-full h-full  absolute top-0 left-0 rounded-lg  ${
+                    isSelected === item.title
+                      ? "max-h-96  min-h-[250px]"
+                      : " max-h-0"
                   }`}
                 />
               </div>
