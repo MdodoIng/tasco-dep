@@ -9,17 +9,19 @@ import OurServices from "../components/OurServices";
 const Home = () => {
 
   
-  useEffect(() => {
-    const scrollBar = Scrollbar.init(document.querySelector(".main"), {
-      damping: 0.06,
-      delegateTo: document,
-      alwaysShowTracks: false,
-      speed: 3,
-    });
-  }, []);
+  // useEffect(() => {
+  //   const scrollBar = Scrollbar.init(document.querySelector(".main"), {
+  //     damping: 0.06,
+  //     delegateTo: document,
+  //     alwaysShowTracks: false,
+  //     speed: 3,
+  //   });
+  // }, []);
 
   return (
-    <div className="main h-screen w-full flex flex-col  overflow-auto">
+    <div 
+    // className="main h-screen w-full flex flex-col  overflow-auto"
+    >
       <Header />
       <Hero />
       <AboutUs />

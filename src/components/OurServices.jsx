@@ -223,115 +223,119 @@ const OurServices = () => {
   );
   return (
     <div className="main_padding mt-40">
-      <h1 className="font-medium text-[32px] leading-[180%] text-primary">
-        Our Services
-      </h1>
-      <div className="mt-9 grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 max-w-[1280px]">
-        {data.map((item, idx) => (
-          <div
-            key={idx}
-            className="w-full relative flex items-end justify-start aspect-square z-10 rounded-[3px] overflow-hidden after:w-full after:absolute after:h-full after:-z-[5] after:bg-gradient-to-t to-transparent from-primary"
-          >
-            <MainImage
-              src={item.picture}
-              alt="pic"
-              width={100}
-              height={100}
-              loading="lazy"
-              className="absolute w-full h-full object-cover -z-10"
-            />
-            <p className="font-medium text-white text-base leading-[141%] pl-4 pb-4">
-              {item.title}
-            </p>
-          </div>
-        ))}
-      </div>
-      {/*  */}
-
-      <div className="mt-40">
-        <ul className="grid w-full gap-6">
-          {data.map((item, itemIdx) => (
-            <li key={itemIdx} className="w-full grid grid-cols-2 gap-3">
-              <div
-                style={{
-                  boxShadow: "0px 20.736px 98.496px rgba(201, 203, 204, 0.3)",
-                }}
-                className={`grid  rounded-lg border border-[#F3F4FE] ${
-                  isSelected === item.title ? "bg-primary" : "bg-white"
-                } grid place-items-start p-5 h-min`}
-              >
-                <span
-                  onClick={() => setIsSelected(item.title)}
-                  className="flex w-full items-center justify-between"
-                >
-                  <h1
-                    className={`${
-                      isSelected === item.title
-                        ? "text-[rgba(255,255,255,0.88)]"
-                        : "text-black"
-                    } text-xl font-medium leading-[180%]`}
-                  >
-                    {item.title}
-                  </h1>
-                  <div
-                    className={`p-2 rounded-lg overflow-hidden ${
-                      isSelected === item.title
-                        ? "bg-[#274792]"
-                        : "bg-[#3056D30F]"
-                    } w-8 h-8 flex items-center justify-center cursor-pointer`}
-                  >
-                    <svg
-                      width="10"
-                      height="18"
-                      viewBox="0 0 10 18"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8.78177 10.3468L8.78186 10.3469L8.78933 10.3384C9.09143 9.99543 9.22495 9.58187 9.22495 9.17743C9.22495 8.74592 9.04954 8.33862 8.76577 8.01647L8.76585 8.01641L8.75891 8.00884L2.84637 1.55868L2.84065 1.55243L2.83471 1.54637C2.50677 1.21129 1.91114 1.10718 1.50485 1.5223C1.18228 1.85188 1.08455 2.43622 1.47474 2.84244L7.30485 9.17743L1.47033 15.5172L1.46227 15.526L1.45462 15.5351C1.14864 15.8998 1.14624 16.4662 1.50485 16.8326L1.5188 16.8468L1.53379 16.86C1.89844 17.1793 2.4707 17.1804 2.83471 16.8085L2.84029 16.8028L2.84568 16.7969L8.78177 10.3468Z"
-                        fill={isSelected === item.title ? "#E3ECFF" : "#3056D3"}
-                        stroke={
-                          isSelected === item.title ? "#E3ECFF" : "#3056D3"
-                        }
-                        stroke-width="1.0368"
-                      />
-                    </svg>
-                  </div>
-                </span>
-
-                <ul
-                  className={`pl-6 list-disc gap-1 grid h-max mt-2 overflow-hidden duration-300 ${
-                    isSelected === item.title ? "max-h-96" : " max-h-0"
-                  }`}
-                >
-                  {item.points.map((point, pointIdx) => (
-                    <li
-                      key={pointIdx}
-                      className="text-white text-sm font-light"
-                    >
-                      {point.title}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="grid h-full relative">
-                <MainImage
-                  src={item.secondPicture}
-                  alt="image"
-                  width={100}
-                  height={100}
-                  loading="lazy"
-                  className={`object-cover w-full h-full  absolute top-0 left-0 rounded-lg  ${
-                    isSelected === item.title
-                      ? "max-h-96  min-h-[250px]"
-                      : " max-h-0"
-                  }`}
-                />
-              </div>
-            </li>
+      <div className=" max-w-[1550px] mx-auto">
+        <h1 className="font-medium text-[32px] leading-[180%] text-primary">
+          Our Services
+        </h1>
+        <div className="mt-9 grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 max-w-[1280px]">
+          {data.map((item, idx) => (
+            <div
+              key={idx}
+              className="w-full relative flex items-end justify-start aspect-square z-10 rounded-[3px] overflow-hidden after:w-full after:absolute after:h-full after:-z-[5] after:bg-gradient-to-t to-transparent from-primary"
+            >
+              <MainImage
+                src={item.picture}
+                alt="pic"
+                width={100}
+                height={100}
+                loading="lazy"
+                className="absolute w-full h-full object-cover -z-10"
+              />
+              <p className="font-medium text-white text-base leading-[141%] pl-4 pb-4">
+                {item.title}
+              </p>
+            </div>
           ))}
-        </ul>
+        </div>
+        {/*  */}
+
+        <div className="mt-40">
+          <ul className="grid w-full gap-6">
+            {data.map((item, itemIdx) => (
+              <li key={itemIdx} className="w-full grid grid-cols-2 gap-3">
+                <div
+                  style={{
+                    boxShadow: "0px 20.736px 98.496px rgba(201, 203, 204, 0.3)",
+                  }}
+                  className={`grid  rounded-lg border border-[#F3F4FE] ${
+                    isSelected === item.title ? "bg-primary" : "bg-white"
+                  } grid place-items-start p-5 h-min`}
+                >
+                  <span
+                    onClick={() => setIsSelected(item.title)}
+                    className="flex w-full items-center justify-between"
+                  >
+                    <h1
+                      className={`${
+                        isSelected === item.title
+                          ? "text-[rgba(255,255,255,0.88)]"
+                          : "text-black"
+                      } text-xl font-medium leading-[180%]`}
+                    >
+                      {item.title}
+                    </h1>
+                    <div
+                      className={`p-2 rounded-lg overflow-hidden ${
+                        isSelected === item.title
+                          ? "bg-[#274792]"
+                          : "bg-[#3056D30F]"
+                      } w-8 h-8 flex items-center justify-center cursor-pointer`}
+                    >
+                      <svg
+                        width="10"
+                        height="18"
+                        viewBox="0 0 10 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.78177 10.3468L8.78186 10.3469L8.78933 10.3384C9.09143 9.99543 9.22495 9.58187 9.22495 9.17743C9.22495 8.74592 9.04954 8.33862 8.76577 8.01647L8.76585 8.01641L8.75891 8.00884L2.84637 1.55868L2.84065 1.55243L2.83471 1.54637C2.50677 1.21129 1.91114 1.10718 1.50485 1.5223C1.18228 1.85188 1.08455 2.43622 1.47474 2.84244L7.30485 9.17743L1.47033 15.5172L1.46227 15.526L1.45462 15.5351C1.14864 15.8998 1.14624 16.4662 1.50485 16.8326L1.5188 16.8468L1.53379 16.86C1.89844 17.1793 2.4707 17.1804 2.83471 16.8085L2.84029 16.8028L2.84568 16.7969L8.78177 10.3468Z"
+                          fill={
+                            isSelected === item.title ? "#E3ECFF" : "#3056D3"
+                          }
+                          stroke={
+                            isSelected === item.title ? "#E3ECFF" : "#3056D3"
+                          }
+                          stroke-width="1.0368"
+                        />
+                      </svg>
+                    </div>
+                  </span>
+
+                  <ul
+                    className={`pl-6 list-disc gap-1 grid h-max mt-2 overflow-hidden duration-300 ${
+                      isSelected === item.title ? "max-h-96" : " max-h-0"
+                    }`}
+                  >
+                    {item.points.map((point, pointIdx) => (
+                      <li
+                        key={pointIdx}
+                        className="text-white text-sm font-light"
+                      >
+                        {point.title}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="grid h-full relative">
+                  <MainImage
+                    src={item.secondPicture}
+                    alt="image"
+                    width={100}
+                    height={100}
+                    loading="lazy"
+                    className={`object-cover w-full h-full  absolute top-0 left-0 rounded-lg  ${
+                      isSelected === item.title
+                        ? "max-h-96  min-h-[250px]"
+                        : " max-h-0"
+                    }`}
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
