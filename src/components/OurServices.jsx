@@ -222,12 +222,12 @@ const OurServices = () => {
     "Construction and Interior decoration"
   );
   return (
-    <div className="main_padding mt-40">
+    <div className="main_padding lg:mt-32 mt-14">
       <div className=" max-w-[1550px] mx-auto">
-        <h1 className="font-medium text-[32px] leading-[180%] text-primary">
+        <h1 className="font-medium lg:text-[32px] sm:text-[28px] text-2xl leading-[180%] text-primary">
           Our Services
         </h1>
-        <div className="mt-9 grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 max-w-[1280px]">
+        <div className="lg:mt-9 sm:mt-7 mt-5 sm:grid hidden lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 max-w-[1280px]">
           {data.map((item, idx) => (
             <div
               key={idx}
@@ -241,7 +241,7 @@ const OurServices = () => {
                 loading="lazy"
                 className="absolute w-full h-full object-cover -z-10"
               />
-              <p className="font-medium text-white text-base leading-[141%] pl-4 pb-4">
+              <p className="font-medium text-white sm:text-base text-sm leading-[141%] pl-4 pb-4">
                 {item.title}
               </p>
             </div>
@@ -249,18 +249,32 @@ const OurServices = () => {
         </div>
         {/*  */}
 
-        <div className="mt-40">
+        <div className="lg:mt-40 sm:mt-20 mt-8 relative">
+          <span className="absolute -z-10 top-1/2 lg:-left-1/2 sm:-left-[70%] -left-[500px] w-[530px] h-[530px] blur-[177px] bg-[#96AEFF]" />
           <ul className="grid w-full gap-6">
             {data.map((item, itemIdx) => (
-              <li key={itemIdx} className="w-full grid grid-cols-2 gap-3">
+              <li
+                key={itemIdx}
+                className="w-full grid sm:grid-cols-2 gap-3 relative"
+              >
                 <div
                   style={{
                     boxShadow: "0px 20.736px 98.496px rgba(201, 203, 204, 0.3)",
                   }}
                   className={`grid  rounded-lg border border-[#F3F4FE] ${
-                    isSelected === item.title ? "bg-primary" : "bg-white"
-                  } grid place-items-start p-5 h-min`}
+                    isSelected === item.title
+                      ? "sm:bg-primary bg-[rgba(37,59,110,0.80)]"
+                      : "bg-white"
+                  } grid place-items-start p-5 h-min `}
                 >
+                  <MainImage
+                    src={item.secondPicture}
+                    alt="image"
+                    width={100}
+                    height={100}
+                    loading="lazy"
+                    className={`object-cover w-full h-full  absolute top-0 left-0 rounded-lg  -z-10`}
+                  />
                   <span
                     onClick={() => setIsSelected(item.title)}
                     className="flex w-full items-center justify-between"
@@ -270,14 +284,14 @@ const OurServices = () => {
                         isSelected === item.title
                           ? "text-[rgba(255,255,255,0.88)]"
                           : "text-black"
-                      } text-xl font-medium leading-[180%]`}
+                      } sm:text-xl text-base font-medium leading-[130%]`}
                     >
                       {item.title}
                     </h1>
                     <div
                       className={`p-2 rounded-lg overflow-hidden ${
                         isSelected === item.title
-                          ? "bg-[#274792]"
+                          ? "sm:bg-[#274792] bg-[#9DBAFF]"
                           : "bg-[#3056D30F]"
                       } w-8 h-8 flex items-center justify-center cursor-pointer`}
                     >
@@ -287,16 +301,18 @@ const OurServices = () => {
                         viewBox="0 0 10 18"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
+                        className={`${
+                          isSelected === item.title && "-rotate-90"
+                        } duration-300`}
                       >
                         <path
                           d="M8.78177 10.3468L8.78186 10.3469L8.78933 10.3384C9.09143 9.99543 9.22495 9.58187 9.22495 9.17743C9.22495 8.74592 9.04954 8.33862 8.76577 8.01647L8.76585 8.01641L8.75891 8.00884L2.84637 1.55868L2.84065 1.55243L2.83471 1.54637C2.50677 1.21129 1.91114 1.10718 1.50485 1.5223C1.18228 1.85188 1.08455 2.43622 1.47474 2.84244L7.30485 9.17743L1.47033 15.5172L1.46227 15.526L1.45462 15.5351C1.14864 15.8998 1.14624 16.4662 1.50485 16.8326L1.5188 16.8468L1.53379 16.86C1.89844 17.1793 2.4707 17.1804 2.83471 16.8085L2.84029 16.8028L2.84568 16.7969L8.78177 10.3468Z"
-                          fill={
-                            isSelected === item.title ? "#E3ECFF" : "#3056D3"
-                          }
-                          stroke={
-                            isSelected === item.title ? "#E3ECFF" : "#3056D3"
-                          }
-                          stroke-width="1.0368"
+                          strokeWidth="1.0368"
+                          className={`${
+                            isSelected === item.title
+                              ? "sm:fill-[#E3ECFF] sm:stroke-[#E3ECFF] fill-primary stroke-primary"
+                              : "fill-[#3056D3] stroke-[#3056D3]"
+                          }`}
                         />
                       </svg>
                     </div>
@@ -318,7 +334,7 @@ const OurServices = () => {
                   </ul>
                 </div>
 
-                <div className="grid h-full relative">
+                <div className="sm:grid hidden h-full relative">
                   <MainImage
                     src={item.secondPicture}
                     alt="image"

@@ -48,10 +48,10 @@ const follow_us = [
 const Footer = () => {
   return (
     <div className="bg-primary main_padding py-14 mt-20 ">
-      <div className="flex justify-between items-start gap-10 max-w-[1550px] mx-auto">
+      <div className="flex justify-between items-start flex-wrap max-sm:flex-col sm:gap-10 gap-8 max-w-[1550px] mx-auto">
 
       
-      <div>
+      <div className="">
         <MainImage
           src={logo}
           alt="logo"
@@ -61,21 +61,21 @@ const Footer = () => {
           loading="lazy"
           className="object-contain max-h-[60px] w-auto cursor-pointer"
         />
-        <p className="text-lightBlue opacity-80 text-base tracking-[0.01em] leading-[170%] mt-7 max-w-[300px]">
+        <p className="text-lightBlue opacity-80 sm:text-base text-sm tracking-[0.01em] leading-[170%] sm:mt-7 mt-4 max-w-[300px]">
           Dictum leo velit id a feugiat accumsan vitae aliquam. Ipsum cras
           faucibus lectus diam nunc eget.
         </p>
       </div>
       {/* Contact us */}
 
-      <div className="grid h-max gap-5">
-        <h2 className="font-bold text-xl leading-[180%] text-[rgba(255,255,255,0.88)]">
+      <div className="grid h-max sm:gap-5 gap-4">
+        <h2 className="font-bold sm:text-xl text-lg leading-[180%] text-[rgba(255,255,255,0.88)]">
           Contact us
         </h2>
-        <ul className="grid h-max gap-4">
+        <ul className="grid h-max sm:gap-4 gap-3">
           {contact_us.map((item, idx) => (
             <li key={idx} className="flex items-center gap-3">
-              <span className="p-3 bg-[#2BBDE026] rounded-[16px] h-12 w-12">
+              <span className="sm:p-3 p-2 bg-[#2BBDE026] sm:rounded-[16px] rounded-xl sm:h-12 sm:w-12 h-8 w-8">
                 <MainImage
                   src={item.icon}
                   alt="icon"
@@ -83,7 +83,7 @@ const Footer = () => {
                   className="object-contain w-full h-full"
                 />
               </span>
-              <p className="font-medium text-[rgba(255,255,255,0.88)] text-xl">
+              <p className="font-medium text-[rgba(255,255,255,0.88)] sm:text-xl text-base">
                 {item.title}
               </p>
             </li>
@@ -93,14 +93,14 @@ const Footer = () => {
 
       {/*Follow us on  */}
 
-      <div className="grid h-max gap-5">
-        <h2 className="font-bold text-xl leading-[180%] text-[rgba(255,255,255,0.88)]">
+      <div className="grid h-max sm:gap-5 gap-4">
+        <h2 className="font-bold sm:text-xl text-lg leading-[180%] text-[rgba(255,255,255,0.88)]">
           Follow us on
         </h2>
         <ul className="flex gap-4">
           {follow_us.map((item, idx) => (
             <li key={idx} className="flex items-center gap-3">
-              <Link to={item.link} target="_blank" className="p-3 bg-[#2BBDE026] rounded-[16px] h-12 w-12">
+              <Link to={item.link} target="_blank" className="sm:p-3 p-2 bg-[#2BBDE026] sm:rounded-[16px] rounded-xl sm:h-12 sm:w-12 h-8 w-8">
                 <MainImage
                   src={item.icon}
                   alt="icon"

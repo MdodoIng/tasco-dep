@@ -10,7 +10,7 @@ const Hero = () => {
       style={{
         boxShadow: "12px 20px 54px 0px #253B6E40",
       }}
-      className={`aspect-[1/1.1] max-w-[200px] h-auto rounded-[10px] border-[10px] border-[#E3ECFF] absolute ${position}`}
+      className={`aspect-[1/1.1] sm:max-w-[200px] max-w-[140px] h-auto rounded-[10px] border-[10px] border-[#E3ECFF] absolute ${position}`}
     >
       <div className="rounded-[5px] overflow-hidden">
         <MainImage
@@ -26,10 +26,10 @@ const Hero = () => {
   );
 
   return (
-    <div className="main_padding w-full pt-40 h-screen">
-      <div className="mx-auto max-w-[1550px] grid grid-cols-2">
-        <div className="w-max flex flex-col items-start shrink-0">
-          <h1 className="text-5xl font-semibold leading-[125%] tracking-[-0.04em] text-primary  max-w-[610px]">
+    <div className="main_padding w-full pt-40 sm:h-screen">
+      <div className="mx-auto max-w-[1550px] sm:grid grid-cols-2 flex flex-col h-full">
+        <div className="lg:w-max flex flex-col items-start lg:shrink-0">
+          <h1 className="lg:text-5xl text-4xl font-semibold leading-[125%] tracking-[-0.04em] text-primary  max-w-[610px]">
             We provide you the quality with perfect credibility
           </h1>
           <p className="text-base leading-[175%] tracking-[0.01em] text-primary mt-[15px] font-normal max-w-[520px]">
@@ -41,12 +41,12 @@ const Hero = () => {
             View all services
           </button>
         </div>
-        <div className="w-full h-full relative flex items-center justify-center">
-          <ImageBox image={image1} position="top-2 -rotate-45" />
-          <ImageBox image={image2} position="bottom-10 left-0 rotate-[12deg]" />
+        <div className="w-full h-full relative flex items-center justify-center max-sm:min-h-[450px]">
+          <ImageBox image={image1} position="sm:top-2 top-16 -rotate-45 " />
+          <ImageBox image={image2} position="bottom-10 left-0 rotate-[12deg] " />
           <ImageBox
             image={image3}
-            position="bottom-10 right-0 -rotate-[20.deg]"
+            position="bottom-10 sm:right-0 -right-10 -rotate-[20.deg]"
           />
         </div>
       </div>
