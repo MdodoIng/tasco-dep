@@ -47,8 +47,8 @@ const follow_us = [
 
 const Footer = () => {
   return (
-    <div className="bg-primary main_padding py-14 mt-20 ">
-      <div className="flex justify-between items-start flex-wrap max-sm:flex-col sm:gap-10 gap-8 max-w-[1550px] mx-auto">
+    <div id="contact_us" className="bg-primary main_padding py-14 mt-20 ">
+      <div className="flex justify-between items-start flex-wrap max-sm:flex-col sm:gap-10 gap-8 max-w-[1440px] mx-auto">
 
       
       <div className="">

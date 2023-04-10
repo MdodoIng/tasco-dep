@@ -222,8 +222,8 @@ const OurServices = () => {
     "Construction and Interior decoration"
   );
   return (
-    <div className="main_padding lg:mt-32 mt-14">
-      <div className=" max-w-[1550px] mx-auto">
+    <div id="services" className="main_padding lg:mt-32 mt-14">
+      <div className=" max-w-[1440px] mx-auto">
         <h1 className="font-medium lg:text-[32px] sm:text-[28px] text-2xl leading-[180%] text-primary">
           Our Services
         </h1>
@@ -249,7 +249,7 @@ const OurServices = () => {
         </div>
         {/*  */}
 
-        <div className="lg:mt-40 sm:mt-20 mt-8 relative">
+        <div id="allServices" className="lg:mt-40 sm:mt-20 mt-8 relative">
           <span className="absolute -z-10 top-1/2 lg:-left-1/2 sm:-left-[70%] -left-[500px] w-[530px] h-[530px] blur-[177px] bg-[#96AEFF]" />
           <ul className="grid w-full gap-6">
             {data.map((item, itemIdx) => (
@@ -273,10 +273,14 @@ const OurServices = () => {
                     width={100}
                     height={100}
                     loading="lazy"
-                    className={`object-cover w-full h-full  absolute top-0 left-0 rounded-lg  -z-10`}
+                    className={`object-cover w-full h-full  absolute top-0 left-0 rounded-lg sm:hidden   -z-10`}
                   />
                   <span
-                    onClick={() => setIsSelected(item.title)}
+                    onClick={() =>
+                      isSelected === item.title
+                        ? setIsSelected(null)
+                        : setIsSelected(item.title)
+                    }
                     className="flex w-full items-center justify-between"
                   >
                     <h1

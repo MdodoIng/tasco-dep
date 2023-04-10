@@ -5,8 +5,8 @@ import { MainImage } from "gatsby-plugin-image";
 
 const AboutUs = () => {
   return (
-    <div className="main_padding  sm:mt-40 mt-14">
-      <div className="max-w-[1550px] mx-auto grid sm:grid-cols-2 gap-10">
+    <div id="about_us" className="main_padding  sm:mt-40 mt-14">
+      <div className="max-w-[1440px] mx-auto grid sm:grid-cols-2 gap-20">
         <div>
           <span>
             <MainImage
@@ -21,7 +21,7 @@ const AboutUs = () => {
           <h2 className="font-medium text-primary lg:text-2xl text-xl mt-2">
             About us
           </h2>
-          <p className="font-light text-primary lg:text-lg text-base leading-[180%] mt-2">
+          <p className="font-light text-primary lg:text-lg text-base leading-[180%] mt-2 text-justify">
             TAASCO Interiors & fit-outs is one of the modern interior fit-out
             companies in KSA. With new generation methods and technology we
             offer turnkey interior solutions, flooring, ceiling, gypsum
@@ -45,7 +45,7 @@ const AboutUs = () => {
           <h2 className="font-medium text-primary lg:text-2xl text-xl leading-[180%] mt-2">
             Vision
           </h2>
-          <p className="font-light text-primary lg:text-lg text-base leading-[180%] mt-2">
+          <p className="font-light text-primary lg:text-lg text-base leading-[180%] mt-2 text-justify">
             Our vision is to maintain and develop our presence as a leading
             contracting company in the market, whose reputation is built on
             trust thatwe provide our clients with high quality and efficient

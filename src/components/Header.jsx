@@ -6,8 +6,8 @@ import logo from "../assets/logo.svg";
 const Header = () => {
   const [isToggle, setIsToggle] = useState(false);
   return (
-    <div className="main_padding fixed top-10 w-full  select-none z-[500]">
-      <div className="mx-auto max-w-[1550px] flex items-center justify-between">
+    <div className="main_padding fixed pt-10 w-full  select-none z-[500] pb-6 bg-white shadow-sm">
+      <div className="mx-auto max-w-[1440px] flex items-center justify-between ">
         <div
           onClick={() => typeof window !== undefined && window.scrollTo(0, 0)}
           className="cursor-pointer"
@@ -22,22 +22,22 @@ const Header = () => {
           />
         </div>
         <div className="lg:flex hidden items-center gap-8">
-          <Link className="capitalize font-medium text-lg text-primary cursor-pointer">
+          <Link to="#about_us" className="capitalize font-medium text-lg text-primary cursor-pointer">
             About us
           </Link>
-          <Link className="capitalize font-medium text-lg text-primary cursor-pointer">
+          <Link to="#services" className="capitalize font-medium text-lg text-primary cursor-pointer">
             Services
           </Link>
-          <button className="capitalize font-medium text-lg text-white px-4 py-3 bg-primary rounded-[4px]">
+          <Link to="#contact_us" className="capitalize font-medium text-lg text-white px-4 py-3 bg-primary rounded-[4px]">
             Contact us
-          </button>
+          </Link>
         </div>
 
         {/* tab menu */}
 
         <div
           onClick={() => setIsToggle(!isToggle)}
-          className="relative w-[30px] h-[22px] flex items-center justify-center p-[2px]"
+          className="relative w-[30px] h-[22px] lg:hidden flex items-center justify-center p-[2px]"
         >
           <span
             className={`w-full bg-primary border border-primary absolute duration-300  ${
