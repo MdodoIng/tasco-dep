@@ -6,7 +6,7 @@ import logo from "../assets/logo.svg";
 const Header = () => {
   const [isToggle, setIsToggle] = useState(false);
   return (
-    <div className="main_padding fixed pt-10 w-full  select-none z-[500] pb-6 bg-white shadow-sm">
+    <div className="main_padding fixed pt-4 w-full  select-none z-[500] pb-4 backdrop-blur-[6px] shadow-sm">
       <div className="mx-auto max-w-[1440px] flex items-center justify-between ">
         <div
           onClick={() => typeof window !== undefined && window.scrollTo(0, 0)}
