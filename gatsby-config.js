@@ -16,8 +16,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: `The Cool Application`,
-        short_name: `Cool App`,
+        name: `taasco`,
+        short_name: `taasco`,
         description: `The application does cool things and makes your life better.`,
         lang: `en`,
         display: `standalone`,
