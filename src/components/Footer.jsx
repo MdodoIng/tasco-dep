@@ -77,8 +77,7 @@ const Footer = () => {
             className="object-contain max-h-[60px] w-auto cursor-pointer"
           />
           <p className="text-lightBlue opacity-80 sm:text-base text-sm tracking-[0.01em] leading-[170%] sm:mt-7 mt-4 max-w-[300px]">
-            Dictum leo velit id a feugiat accumsan vitae aliquam. Ipsum cras
-            faucibus lectus diam nunc eget.
+          Your trusted partner for modern interior solutions and in executing architectural plans and designing and building projects.
           </p>
         </div>
         {/* Contact us */}

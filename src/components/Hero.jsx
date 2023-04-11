@@ -34,9 +34,12 @@ const Hero = () => {
             We provide you the quality with perfect credibility
           </h1>
           <p className="text-base leading-[175%] tracking-[0.01em] text-primary mt-[15px] font-normal max-w-[520px]">
-            Dictum leo velit id a feugiat accumsan vitae aliquam. Ipsum cras
-            faucibus lectus diam nunc eget. Massa dictum massa eu semper
-            pharetra ac. Sit velit sapien in molestie nunc. Facilisis ultricies.
+            As one of the most innovative interior fit-out companies in KSA, we
+            utilize new generation methods and technology to to deliver
+            top-quality projects while maintaining the utmost credibility with
+            our clients. Whether you require a modern office space, updated
+            retail store, or enhanced residential property, we have the
+            expertise and experience to bring your vision to life.
           </p>
           <Link
             to="#allServices"
@@ -48,7 +51,10 @@ const Hero = () => {
         </div>
         <div className="w-full h-full  flex items-center justify-end max-sm:min-h-[450px] -mt-20">
           <div className="max-h-[500px] max-w-[500px] relative w-full h-full flex items-center justify-center">
-            <ImageBox image={image1} position="sm:top-2 top-16 -rotate-45 " />
+            <ImageBox
+              image={image1}
+              position="sm:top-2 top-16 rotate-[50deg] "
+            />
             <ImageBox
               image={image2}
               position="bottom-0 left-0 rotate-[12deg] "
