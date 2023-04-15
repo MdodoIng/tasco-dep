@@ -218,9 +218,7 @@ const data = [
 ];
 
 const OurServices = () => {
-  const [isSelected, setIsSelected] = useState(
-    "Construction and Interior decoration"
-  );
+  const [isSelected, setIsSelected] = useState("");
   return (
     <div id="services" className="main_padding lg:mt-32 mt-14">
       <div className=" max-w-[1440px] mx-auto">
