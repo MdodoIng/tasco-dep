@@ -1,0 +1,68 @@
+import React from "react";
+
+const ContactUs = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  return (
+    <div id="contact-us" className="main_padding lg:mt-32 mt-14">
+      <div className=" max-w-[1440px] mx-auto">
+        <h1 className="text-3xl text-primary font-medium leading-[180%]">
+          Contact us
+        </h1>
+        <form
+          onSubmit={handleSubmit}
+          className="mt-5 w-full flex flex-col max-w-[800px] sm:gap-[18px] gap-[14px]"
+        >
+          <label className="grid sm:w-[50%] font-light tracking-[-0.03em] text-base text-primary gap-2">
+            Full name
+            <input
+              type="text"
+              className="outline-none border border-[#B8D4FF] rounded-[5px] bg-transparent py-1 px-2 text-primary caret-primary"
+            />
+          </label>
+          <span className="flex w-full sm:items-center justify-between sm:gap-10 gap-[14px] max-sm:flex-col">
+            <label className="grid font-light tracking-[-0.03em] text-base text-primary gap-2 sm:w-[60%] shrink-0">
+              Email address
+              <input
+                type="email"
+                className="outline-none border border-[#B8D4FF] rounded-[5px] bg-transparent py-1 px-2 text-primary caret-primary"
+              />
+            </label>
+            <label className="grid font-light tracking-[-0.03em] text-base text-primary gap-2 sm:w-[40%]">
+              Mobile Number
+              <input
+                type="number"
+                className="outline-none border border-[#B8D4FF] rounded-[5px] bg-transparent py-1 px-2 text-primary caret-primary"
+              />
+            </label>
+          </span>
+          <label className="grid sm:w-[60%] font-light tracking-[-0.03em] text-base text-primary gap-2">
+            Your Location
+            <input
+              type="text"
+              className="outline-none border border-[#B8D4FF] rounded-[5px] bg-transparent py-1 px-2 text-primary caret-primary"
+            />
+          </label>
+          <label className="grid sm:w-[60%] font-light tracking-[-0.03em] text-base text-primary gap-2">
+            Your Message
+            <textarea className="outline-none border border-[#B8D4FF] rounded-[5px] bg-transparent py-1 px-2 text-primary caret-primary min-h-[120px]" />
+          </label>
+
+          <button
+            type="submit"
+            style={{
+              leadingTrim: "both",
+              textEdge: "cap",
+            }}
+            className="px-5 py-4 flex items-center justify-center text-primary w-max border-[1.5px] border-primary rounded-[5px] font-light text-base tracking-[-0.03em] "
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default ContactUs;

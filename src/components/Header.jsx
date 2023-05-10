@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <div className="main_padding fixed pt-4 w-full  select-none z-[500] pb-4 backdrop-blur-[6px] shadow-sm">
       <div className="mx-auto max-w-[1440px] flex items-center justify-between ">
-        <div
+        <Link to="/"
           onClick={() => typeof window !== undefined && window.scrollTo(0, 0)}
           className="cursor-pointer"
         >
@@ -20,7 +20,7 @@ const Header = () => {
             loading="lazy"
             className="object-contain h-full w-auto select-none sm:max-h-[60px] max-h-[40px]"
           />
-        </div>
+        </Link>
         <div className="lg:flex hidden items-center gap-8">
           <Link to="#about_us" className="capitalize font-medium text-lg text-primary cursor-pointer">
             About us
@@ -61,19 +61,19 @@ const Header = () => {
               isToggle ? "right-10" : "-right-96"
             }`}
           >
-            <Link
+            <Link to="#about_us"
               onClick={() => setIsToggle(false)}
               className="capitalize font-medium text-lg text-primary cursor-pointer"
             >
               About us
             </Link>
-            <Link
+            <Link to="#services"
               onClick={() => setIsToggle(false)}
               className="capitalize font-medium text-lg text-primary cursor-pointer"
             >
               Services
             </Link>
-            <Link
+            <Link to="#contact_us"
               onClick={() => setIsToggle(false)}
               className="capitalize font-medium text-lg text-primary cursor-pointer"
             >

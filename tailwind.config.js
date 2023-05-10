@@ -10,7 +10,10 @@ module.exports = {
         primary: "#253B6E",
         lightBlue: "#E3ECFF",
       },
+      screens: {
+        xs: "400px",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
