@@ -66,7 +66,7 @@ const SingleNews = (props) => {
 
         <div className="mt-20">
           <h5 className="text-primary font-normal text-xl ">Share it on</h5>
-          <div className="flex items-center justify-start mt-3 gap-4">
+          <div className="flex items-center justify-start mt-2 gap-3">
             <a
               href={`whatsapp://send/?text=${news.heading}%20${props.location.href}`}
               target="_blank"
