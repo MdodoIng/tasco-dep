@@ -2,12 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "../assets/fonts/font.css";
+@import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Lexend Deca, sans-serif";
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

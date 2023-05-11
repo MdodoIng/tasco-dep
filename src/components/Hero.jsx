@@ -5,7 +5,23 @@ import image1 from "../assets/images/hero images1.webp";
 import image2 from "../assets/images/hero images2.webp";
 import image3 from "../assets/images/hero images3.webp";
 import { Link } from "gatsby";
-const Hero = () => {
+
+const content = {
+  english: {
+    title: "We provide you the quality with perfect credibility",
+    description:
+      "As one of the most innovative interior fit-out companies in KSA, we utilize new generation methods and technology to to deliver top-quality projects while maintaining the utmost credibility with our clients. Whether you require a modern office space, updated retail store, or enhanced residential property, we have the expertise and experience to bring your vision to life.",
+    buttonName: "View all services",
+  },
+  arabic: {
+    title: "نحن نقدم لك الجودة بمصداقية تامة",
+    description:
+      "باعتبارها واحدة من أكثر شركات التجهيزات الداخلية ابتكارًا في المملكة العربية السعودية ، فإننا نستخدم أساليب وتقنيات الجيل الجديد لتقديم مشاريع عالية الجودة مع الحفاظ على أقصى قدر من المصداقية مع عملائنا. سواء كنت بحاجة إلى مساحة مكتبية حديثة ، أو متجر بيع بالتجزئة محدث ، أو عقار سكني محسن ، لدينا الخبرة والتجربة لتحقيق رؤيتك في الحياة.",
+    buttonName: "عرض جميع الخدمات",
+  },
+};
+
+const Hero = ({ isLanguage }) => {
   const ImageBox = ({ image, position }) => (
     <span
       style={{
@@ -29,24 +45,27 @@ const Hero = () => {
   return (
     <div className="main_padding w-full pt-52 sm:h-screen">
       <div className="mx-auto max-w-[1440px] sm:grid grid-cols-2 flex flex-col h-full">
-        <div className="lg:w-max flex flex-col items-start lg:shrink-0">
+        <div
+          className={`lg:w-max flex flex-col ${
+            isLanguage ? "items-end" : "items-start"
+          } lg:shrink-0`}
+        >
           <h1 className="lg:text-5xl text-4xl font-semibold lg:leading-[125%] leading-[125%] tracking-[-0.04em] text-primary  max-w-[610px]">
-            We provide you the quality with perfect credibility
+            {isLanguage ? content.arabic.title : content.english.title}
           </h1>
           <p className="text-base leading-[175%] tracking-[0.01em] text-primary mt-[15px] font-normal max-w-[520px]">
-            As one of the most innovative interior fit-out companies in KSA, we
-            utilize new generation methods and technology to to deliver
-            top-quality projects while maintaining the utmost credibility with
-            our clients. Whether you require a modern office space, updated
-            retail store, or enhanced residential property, we have the
-            expertise and experience to bring your vision to life.
+            {isLanguage
+              ? content.arabic.description
+              : content.english.description}
           </p>
           <Link
             to="#allServices"
             className="px-5 py-3 rounded-[5px] border-[1.5px] border-primary font-light tracking-[-0.03em] text-primary mt-7 relative group hover:text-white duration-300"
           >
             <span className="w-[0] absolute bottom-0 h-[0] bg-primary left-0 group-hover:rounded-none group-hover:w-full group-hover:h-full duration-300 -z-10" />
-            View all services
+            {isLanguage
+              ? content.arabic.buttonName
+              : content.english.buttonName}
           </Link>
         </div>
         <div className="w-full h-full  flex items-center justify-end max-sm:min-h-[450px] -mt-20">

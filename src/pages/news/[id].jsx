@@ -1,31 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { MainImage } from "gatsby-plugin-image";
-import second5 from "../../assets/images/news/Blog Image1.webp";
+import { graphql } from "gatsby";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
+
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: (text) => <b className="font-semibold">{text}</b>,
+  },
+  renderNode: {
+    [INLINES.HYPERLINK]: (node, children) => {
+      const { uri } = node.data;
+      return (
+        <a href={uri} className="underline">
+          {children}
+        </a>
+      );
+    },
+    [BLOCKS.HEADING_2]: (node, children) => {
+      return (
+        <h2 className="font-semibold text-primary text-2xl mt-3 mb-2 capitalize">
+          {children}
+        </h2>
+      );
+    },
+    [BLOCKS.HEADING_6]: (node, children) => {
+      return (
+        <h6 className="font-semibold text-primary text-xl mt-3 mb-2 capitalize">
+          {children}
+        </h6>
+      );
+    },
+    [BLOCKS.PARAGRAPH]: (node, children) => {
+      return (
+        <p className=" text-xs leading-[150%] text-primary font-light">
+          {children}
+        </p>
+      );
+    },
+    [BLOCKS.UL_LIST]: (node, children) => {
+      return (
+        <ul className="font-normal text-xs leading-[150%] text-primary pl-6 list-disc">
+          {children} 
+        </ul>
+      );
+    },
+  },
+};
 
 const SingleNews = (props) => {
-  // const news = props.data.allContentfulSpeakerboxBlog.edges.filter(
-  //   (element) => element.node.id === props.id && element
-  // )[0].node;
+  const [isLanguage, setIsLanguage] = useState("");
+  const news = props.data.allContentfulNewsAndInfermation.edges.filter(
+    (element) => element.node.id === props.id && element
+  )[0].node;
 
-  const news = "";
   return (
-    <div className="min-h-screen">
-      <Header />
+    <div
+      className={`min-h-screen ${isLanguage && "text-right font-elMessiri"}`}
+    >
+      <Header isLanguage={isLanguage} setIsLanguage={setIsLanguage} />
       <div className="main_padding w-full pt-40 ">
         <div className=" max-w-[1440px] mx-auto grid sm:grid-cols-2 w-full gap-10">
-          <div>
-            <span className="mt-3 bg-lightBlue w-max px-3 py-1 rounded-[4px] font-semibold text-[#3056D3] text-[9px]">
-              Dec 22, 2023
+          <div className={`${isLanguage && "order-2 flex items-end flex-col"}`}>
+            <span className="mt-3 bg-lightBlue w-max px-3 py-1 pb-0 rounded-[4px] font-semibold text-[#3056D3] text-[9px]">
+              {news.createdAt}
             </span>
             <h4 className="mt-[8px] font-normal text-primary sm:text-3xl text-2xl sm:leading-[140%] leading-[140%] tracking-[-0.04em] max-w-[480px]">
-              Meet AutoManage, the best AI management tools
+              {news.heading}
             </h4>
             <div className="flex sm:hidden items-center justify-center w-full h-max rounded-[5px] overflow-hidden mt-4">
               <MainImage
-                src={second5}
-                alt="image"
+                src={news.image.url}
+                alt={`${news.image.heading} image`}
                 width={500}
                 height={500}
                 loading="lazy"
@@ -33,29 +81,18 @@ const SingleNews = (props) => {
               />
             </div>
             <p className="mt-3 font-light text-xs leading-[150%] text-primary max-w-[500px]">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry. Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry. Lorem Ipsum is simply dummy
-              text of the printing and typesetting industry. <br />
-              <br />
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry.Lorem Ipsum is simply dummy text
-              of the printing and typesetting industry. Lorem Ipsum is simply
-              dummy text of the printing and typesetting industry. Lorem Ipsum
-              is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum is simply dummy text of the printing and
-              typesetting industry.c Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry.
+              {news.description.description}
             </p>
+            {news.contentRichText && (
+              <div className="mt-3 font-light text-xs leading-[150%] max-w-[500px]">
+                {renderRichText(news.contentRichText, options)}
+              </div>
+            )}
           </div>
           <div className="sm:flex hidden items-center justify-center w-full h-full rounded-[5px] overflow-hidden max-h-[300px]">
             <MainImage
-              src={second5}
-              alt="image"
+              src={news.image.url}
+              alt={`${news.image.heading} image`}
               width={500}
               height={500}
               loading="lazy"
@@ -64,12 +101,15 @@ const SingleNews = (props) => {
           </div>
         </div>
 
+        {/* shere */}
+
         <div className="mt-20">
-          <h5 className="text-primary font-normal text-xl ">Share it on</h5>
-          <div className="flex items-center justify-start mt-2 gap-3">
+          <h5 className="text-primary font-normal text-xl "> {isLanguage ? "شاركه على" : "Share it on"}</h5>
+          <div className={`flex items-center justify-start mt-2 gap-3 ${isLanguage && 'flex-row-reverse'}`}>
             <a
               href={`whatsapp://send/?text=${news.heading}%20${props.location.href}`}
               target="_blank"
+              rel="noreferrer"
               className="w-[38px] h-[38px] bg-primary rounded-[13px] flex items-center justify-center group hover:bg-[#E3ECFF] duration-300"
             >
               <svg
@@ -89,6 +129,7 @@ const SingleNews = (props) => {
             <a
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${props.location.href}`}
               target="_blank"
+              rel="noreferrer"
               className="w-[38px] h-[38px] bg-primary rounded-[13px] flex items-center justify-center group hover:bg-[#E3ECFF] duration-300"
             >
               <svg
@@ -118,6 +159,7 @@ const SingleNews = (props) => {
             <a
               href={`https://www.facebook.com/sharer.php?u=${props.location.href}`}
               target="_blank"
+              rel="noreferrer"
               className="w-[38px] h-[38px] bg-primary rounded-[13px] flex items-center justify-center group hover:bg-[#E3ECFF] duration-300"
             >
               <svg
@@ -138,6 +180,7 @@ const SingleNews = (props) => {
               href={`http://twitter.com/share?text=${news.heading} goes here&url=${props.location.href} goes 
               here&hashtags=''`}
               target="_blank"
+              rel="noreferrer"
               className="w-[38px] h-[38px] bg-primary rounded-[13px] flex items-center justify-center group hover:bg-[#E3ECFF] duration-300"
             >
               <svg
@@ -157,9 +200,32 @@ const SingleNews = (props) => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer isLanguage={isLanguage} />
     </div>
   );
 };
 
 export default SingleNews;
+
+export const query = graphql`
+  query {
+    allContentfulNewsAndInfermation(sort: { createdAt: DESC }) {
+      edges {
+        node {
+          id
+          description {
+            description
+          }
+          createdAt(formatString: "MMMM DD, YYYY")
+          image {
+            url
+          }
+          heading
+          contentRichText {
+            raw
+          }
+        }
+      }
+    }
+  }
+`;

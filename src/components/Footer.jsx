@@ -22,16 +22,19 @@ import twitterBlueIcon from "../assets/icons/twitter blue.svg";
 const contact_us = [
   {
     title: "Saudi Arabia",
+    titleArabic: "المملكة العربية السعودية",
     icon: locationIcon,
     blueIcon: locationBlueIcon,
   },
   {
     title: "0558895952, 0558886204 ",
+    titleArabic: "0558895952, 0558886204",
     icon: phoneIcon,
     blueIcon: phoneBlueIcon,
   },
   {
     title: "info@taasco.in",
+    titleArabic: "info@taasco.in",
     icon: mailIcon,
     blueIcon: mailBlueIcon,
   },
@@ -60,11 +63,15 @@ const follow_us = [
   },
 ];
 
-const Footer = () => {
+const Footer = ({ isLanguage }) => {
   return (
-    <div id="contact_us" className="bg-primary main_padding py-14 mt-20 ">
-      <div className="flex justify-between items-start flex-wrap max-sm:flex-col sm:gap-10 gap-8 max-w-[1440px] mx-auto">
-        <div className="">
+    <div className="bg-primary main_padding py-14 mt-20 ">
+      <div
+        className={`flex justify-between items-start flex-wrap max-sm:flex-col sm:gap-10 gap-8 max-w-[1440px] mx-auto ${
+          isLanguage && "flex-row-reverse"
+        }`}
+      >
+        <div className={`${isLanguage && "flex items-end flex-col"}`}>
           <MainImage
             src={logo}
             alt="logo"
@@ -77,18 +84,25 @@ const Footer = () => {
             className="object-contain max-h-[60px] w-auto cursor-pointer"
           />
           <p className="text-lightBlue opacity-80 sm:text-base text-sm tracking-[0.01em] leading-[170%] sm:mt-7 mt-4 max-w-[300px]">
-          Your trusted partner for modern interior solutions and in executing architectural plans and designing and building projects.
+            {isLanguage
+              ? `شريكك الموثوق في الحلول الداخلية الحديثة وفي التنفيذ المخططات المعمارية ومشاريع التصميم والبناء.`
+              : "Your trusted partner for modern interior solutions and in executing architectural plans and designing and building projects."}
           </p>
         </div>
         {/* Contact us */}
 
         <div className="grid h-max sm:gap-5 gap-4">
           <h2 className="font-bold sm:text-xl text-lg leading-[180%] text-[rgba(255,255,255,0.88)]">
-            Contact us
+            {isLanguage ? "اتصل بنا" : "Contact us"}
           </h2>
           <ul className="grid h-max sm:gap-4 gap-3">
             {contact_us.map((item, idx) => (
-              <li key={idx} className="flex items-center gap-3">
+              <li
+                key={idx}
+                className={`flex items-center gap-3 ${
+                  isLanguage && "flex-row-reverse"
+                }`}
+              >
                 <span className="sm:p-3 p-2 bg-[#2BBDE026] hover:bg-[#E3ECFF] sm:rounded-[16px] rounded-xl sm:h-12 sm:w-12 h-8 w-8 group">
                   <MainImage
                     src={item.icon}
@@ -104,7 +118,7 @@ const Footer = () => {
                   />
                 </span>
                 <p className="font-medium text-[rgba(255,255,255,0.88)] sm:text-xl text-base">
-                  {item.title}
+                  {isLanguage ? item.titleArabic : item.title}
                 </p>
               </li>
             ))}
@@ -115,17 +129,18 @@ const Footer = () => {
 
         <div className="grid h-max sm:gap-5 gap-4">
           <h2 className="font-bold sm:text-xl text-lg leading-[180%] text-[rgba(255,255,255,0.88)]">
-            Follow us on
+            {isLanguage ? "اتبعنا" : " Follow us on"}
           </h2>
-          <ul className="flex gap-4">
+          <ul className={`flex gap-4 ${isLanguage && "flex-row-reverse"}`}>
             {follow_us.map((item, idx) => (
               <li key={idx} className="flex items-center gap-3">
                 <Link
                   to={item.link}
                   target="_blank"
+                  rel="noreferrer"
                   className="sm:p-3 p-2 bg-[#2BBDE026] hover:bg-[#E3ECFF] group sm:rounded-[16px] rounded-xl sm:h-12 sm:w-12 h-8 w-8"
                 >
-                 <MainImage
+                  <MainImage
                     src={item.icon}
                     alt="icon"
                     loading="lazy"

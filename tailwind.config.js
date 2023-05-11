@@ -13,6 +13,11 @@ module.exports = {
       screens: {
         xs: "400px",
       },
+
+      fontFamily: {
+        elMessiri: [`El Messiri, sans-serif`],
+        LexendDeca: [`Lexend Deca, sans-serif`],
+      },
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

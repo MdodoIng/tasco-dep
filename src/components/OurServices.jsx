@@ -19,217 +19,414 @@ import joinery2 from "../assets/images/Joinery2.webp";
 import plumbing_works from "../assets/images/Plumbing Works.webp";
 import plumbing_works2 from "../assets/images/Plumbing works2.webp";
 
-import arrow from "../assets/icons/arrow.svg";
+const data = {
+  english: [
+    {
+      title: "Construction and Interior decoration",
+      picture: Construction_and_Interior_decoration,
+      secondPicture: Construction_and_Interior_decoration2,
+      points: [
+        {
+          title: "Structural works",
+        },
+        {
+          title: "Block works",
+        },
+        {
+          title: "Tile fixing",
+        },
+        {
+          title: "Gypsum works",
+        },
+        {
+          title: "Wooden works",
+        },
+        {
+          title: "Shop fitting",
+        },
+        {
+          title: "Interior decoration",
+        },
+        {
+          title: "Fitout works",
+        },
+        {
+          title: "Fitout works",
+        },
+      ],
+    },
+    {
+      title: "Joinery",
+      picture: joinery,
+      secondPicture: joinery2,
+      points: [
+        {
+          title: "Manufacturing of High quality shop fittings",
+        },
+        {
+          title: "Spray paintings",
+        },
+      ],
+    },
+    {
+      title: "HVAC",
+      picture: HVAC,
+      secondPicture: HVAC2,
+      points: [
+        {
+          title: "Chillers & chilled water system",
+        },
+        {
+          title: "Air handling units",
+        },
+        {
+          title: "Package units",
+        },
+        {
+          title: "Air and water balancing",
+        },
+        {
+          title: "Testing and commissioning",
+        },
+      ],
+    },
+    {
+      title: "Plumbing Works",
+      picture: plumbing_works,
+      secondPicture: plumbing_works2,
+      points: [
+        {
+          title: "Interior and external plumbing works",
+        },
+        {
+          title: "Copper and PVC pipping",
+        },
+        {
+          title: "Fire fighting system, testing and commissioning",
+        },
+      ],
+    },
+    {
+      title: "Electric Works",
+      picture: Electric_Works,
+      secondPicture: Electric_Works2,
+      points: [
+        {
+          title: "High voltage switchgears, substations",
+        },
+        {
+          title: "Transformers, cabling networks",
+        },
+        {
+          title: "Low voltage distribution boards, lighting",
+        },
+        {
+          title: "Cabling networks",
+        },
+        {
+          title: "Audio and video systems",
+        },
+        {
+          title: "Fire alarms & security systems",
+        },
+        {
+          title: "Lighting protection systems",
+        },
+      ],
+    },
+    {
+      title: "CCTV Networking",
+      picture: CCTV_Networking,
+      secondPicture: CCTV_Networking2,
+      points: [
+        {
+          title: "Security and Surveillance CCTV",
+        },
+        {
+          title: "Networking",
+        },
+        {
+          title: "Access Door",
+        },
+        {
+          title: "Parking Sensors",
+        },
+      ],
+    },
+    {
+      title: "Fire & Safety Management",
+      picture: Fire_Safety_Management,
+      secondPicture: Fire_Safety_Management2,
+      points: [
+        {
+          title: "Fire Extinguisher",
+        },
+        {
+          title: "Sprinkler System etc.",
+        },
+      ],
+    },
+    {
+      title: "Civil Works",
+      picture: Civil_Works,
+      secondPicture: Civil_Works2,
+      points: [
+        {
+          title: "Concrete Works",
+        },
+        {
+          title: "Drilling & Coring",
+        },
+        {
+          title: "Various Small & Medium Masonry Works",
+        },
+        {
+          title: "Excavation Works",
+        },
+        {
+          title: "Structural Works",
+        },
+        {
+          title: "Floors and Finishing",
+        },
+      ],
+    },
+    {
+      title: "Equipment Rental and Transportation",
+      picture: Equipment_Rental_and_Transportation,
+      secondPicture: Equipment_Rental_and_Transportation2,
+      points: [
+        {
+          title:
+            "TUV and Aramco certified equipments along with well trained operators and workforce.",
+        },
+        {
+          title: "Cranes and Lifting equipments",
+        },
+        {
+          title: "Earth moving equipments and transportation",
+        },
+        {
+          title: "Power Equipments",
+        },
+        {
+          title: "Heavy Trucks",
+        },
+      ],
+    },
+  ],
+  arabic: [
+    {
+      title: "البناء والديكور الداخلي",
+      picture: Construction_and_Interior_decoration,
+      secondPicture: Construction_and_Interior_decoration2,
+      points: [
+        {
+          title: "الأعمال الإنشائية",
+        },
+        {
+          title: "Block works",
+        },
+        {
+          title: "يعمل بلوك",
+        },
+        {
+          title: "اعمال الجبس",
+        },
+        {
+          title: "اعمال خشبية",
+        },
+        {
+          title: "Shop fitting",
+        },
+        {
+          title: "متجر المناسب",
+        },
+        {
+          title: "تناسب العمل",
+        },
+        {
+          title: "تناسب العمل",
+        },
+      ],
+    },
+    {
+      title: "نجارة",
+      picture: joinery,
+      secondPicture: joinery2,
+      points: [
+        {
+          title: "تصنيع تجهيزات المحلات عالية الجودة",
+        },
+        {
+          title: "رش الطلاء",
+        },
+      ],
+    },
+    {
+      title: "HVAC",
+      picture: HVAC,
+      secondPicture: HVAC2,
+      points: [
+        {
+          title: "المبردات ونظام المياه المبردة",
+        },
+        {
+          title: "وحدات لمعالجة الهواء",
+        },
+        {
+          title: "وحدات التغليف",
+        },
+        {
+          title: "موازنة الهواء والماء",
+        },
+        {
+          title: "اختبار والتشغيل",
+        },
+      ],
+    },
+    {
+      title: "أعمال السباكة",
+      picture: plumbing_works,
+      secondPicture: plumbing_works2,
+      points: [
+        {
+          title: "أعمال السباكة الداخلية والخارجية",
+        },
+        {
+          title: "ثقب النحاس والـ PVC",
+        },
+        {
+          title: "نظام مكافحة الحرائق والاختبار والتكليف",
+        },
+      ],
+    },
+    {
+      title: "اعمال كهربائية",
+      picture: Electric_Works,
+      secondPicture: Electric_Works2,
+      points: [
+        {
+          title: "المفاتيح الكهربائية ذات الجهد العالي والمحطات الفرعية",
+        },
+        {
+          title: "محولات وشبكات كابلات",
+        },
+        {
+          title: "لوحات توزيع الجهد المنخفض والإضاءة",
+        },
+        {
+          title: "شبكات الكابلات",
+        },
+        {
+          title: "أنظمة الصوت والفيديو",
+        },
+        {
+          title: "انظمة انذار الحريق والامن",
+        },
+        {
+          title: "أنظمة حماية الإضاءة",
+        },
+      ],
+    },
+    {
+      title: "شبكات CCTV",
+      picture: CCTV_Networking,
+      secondPicture: CCTV_Networking2,
+      points: [
+        {
+          title: "كاميرات مراقبة وامن",
+        },
+        {
+          title: "الشبكات",
+        },
+        {
+          title: "باب الدخول",
+        },
+        {
+          title: "مجسات وقوف السيارات",
+        },
+      ],
+    },
+    {
+      title: "إدارة الحريق والسلامة",
+      picture: Fire_Safety_Management,
+      secondPicture: Fire_Safety_Management2,
+      points: [
+        {
+          title: "طفاية حريق",
+        },
+        {
+          title: "نظام الرش إلخ.",
+        },
+      ],
+    },
+    {
+      title: "أعمال مدنية",
+      picture: Civil_Works,
+      secondPicture: Civil_Works2,
+      points: [
+        {
+          title: "أعمال خرسانية",
+        },
+        {
+          title: "حفر و حفر",
+        },
+        {
+          title: "مختلف أعمال البناء الصغيرة والمتوسطة",
+        },
+        {
+          title: "أعمال الحفر",
+        },
+        {
+          title: "الأعمال الإنشائية",
+        },
+        {
+          title: "الأرضيات والتشطيبات",
+        },
+      ],
+    },
+    {
+      title: "تأجير المعدات ونقلها",
+      picture: Equipment_Rental_and_Transportation,
+      secondPicture: Equipment_Rental_and_Transportation2,
+      points: [
+        {
+          title:
+            "معدات معتمدة من TUV و Aramco جنبًا إلى جنب مع المشغلين والقوى العاملة المدربة جيدًا.",
+        },
+        {
+          title: "اوناش ومعدات رفع",
+        },
+        {
+          title: "معدات تحريك التربة والنقل",
+        },
+        {
+          title: "معدات الطاقة",
+        },
+        {
+          title: "شاحنات ثقيلة",
+        },
+      ],
+    },
+  ],
+};
 
-const data = [
-  {
-    title: "Construction and Interior decoration",
-    picture: Construction_and_Interior_decoration,
-    secondPicture: Construction_and_Interior_decoration2,
-    points: [
-      {
-        title: "Structural works",
-      },
-      {
-        title: "Block works",
-      },
-      {
-        title: "Tile fixing",
-      },
-      {
-        title: "Gypsum works",
-      },
-      {
-        title: "Wooden works",
-      },
-      {
-        title: "Shop fitting",
-      },
-      {
-        title: "Interior decoration",
-      },
-      {
-        title: "Fitout works",
-      },
-      {
-        title: "Fitout works",
-      },
-    ],
-  },
-  {
-    title: "Joinery",
-    picture: joinery,
-    secondPicture: joinery2,
-    points: [
-      {
-        title: "Manufacturing of High quality shop fittings",
-      },
-      {
-        title: "Spray paintings",
-      },
-    ],
-  },
-  {
-    title: "HVAC",
-    picture: HVAC,
-    secondPicture: HVAC2,
-    points: [
-      {
-        title: "Chillers & chilled water system",
-      },
-      {
-        title: "Air handling units",
-      },
-      {
-        title: "Package units",
-      },
-      {
-        title: "Air and water balancing",
-      },
-      {
-        title: "Testing and commissioning",
-      },
-    ],
-  },
-  {
-    title: "Plumbing Works",
-    picture: plumbing_works,
-    secondPicture: plumbing_works2,
-    points: [
-      {
-        title: "Interior and external plumbing works",
-      },
-      {
-        title: "Copper and PVC pipping",
-      },
-      {
-        title: "Fire fighting system, testing and commissioning",
-      },
-    ],
-  },
-  {
-    title: "Electric Works",
-    picture: Electric_Works,
-    secondPicture: Electric_Works2,
-    points: [
-      {
-        title: "High voltage switchgears, substations",
-      },
-      {
-        title: "Transformers, cabling networks",
-      },
-      {
-        title: "Low voltage distribution boards, lighting",
-      },
-      {
-        title: "Cabling networks",
-      },
-      {
-        title: "Audio and video systems",
-      },
-      {
-        title: "Fire alarms & security systems",
-      },
-      {
-        title: "Lighting protection systems",
-      },
-    ],
-  },
-  {
-    title: "CCTV Networking",
-    picture: CCTV_Networking,
-    secondPicture: CCTV_Networking2,
-    points: [
-      {
-        title: "Security and Surveillance CCTV",
-      },
-      {
-        title: "Networking",
-      },
-      {
-        title: "Access Door",
-      },
-      {
-        title: "Parking Sensors",
-      },
-    ],
-  },
-  {
-    title: "Fire & Safety Management",
-    picture: Fire_Safety_Management,
-    secondPicture: Fire_Safety_Management2,
-    points: [
-      {
-        title: "Fire Extinguisher",
-      },
-      {
-        title: "Sprinkler System etc.",
-      },
-    ],
-  },
-  {
-    title: "Civil Works",
-    picture: Civil_Works,
-    secondPicture: Civil_Works2,
-    points: [
-      {
-        title: "Concrete Works",
-      },
-      {
-        title: "Drilling & Coring",
-      },
-      {
-        title: "Various Small & Medium Masonry Works",
-      },
-      {
-        title: "Excavation Works",
-      },
-      {
-        title: "Structural Works",
-      },
-      {
-        title: "Floors and Finishing",
-      },
-    ],
-  },
-  {
-    title: "Equipment Rental and Transportation",
-    picture: Equipment_Rental_and_Transportation,
-    secondPicture: Equipment_Rental_and_Transportation2,
-    points: [
-      {
-        title:
-          "TUV and Aramco certified equipments along with well trained operators and workforce.",
-      },
-      {
-        title: "Cranes and Lifting equipments",
-      },
-      {
-        title: "Earth moving equipments and transportation",
-      },
-      {
-        title: "Power Equipments",
-      },
-      {
-        title: "Heavy Trucks",
-      },
-    ],
-  },
-];
-
-const OurServices = () => {
+const OurServices = ({ isLanguage }) => {
   const [isSelected, setIsSelected] = useState("");
   return (
     <div id="services" className="main_padding lg:mt-32 mt-14">
       <div className=" max-w-[1440px] mx-auto">
         <h1 className="font-medium lg:text-[32px] sm:text-[28px] text-2xl leading-[180%] text-primary">
-          Our Services
+          {isLanguage ? "خدماتنا" : "Our Services"}
         </h1>
         <div className="lg:mt-9 sm:mt-7 mt-5 sm:grid hidden lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5 max-w-[1280px]">
-          {data.map((item, idx) => (
+          {(isLanguage ? data.arabic : data.english).map((item, idx) => (
             <div
               key={idx}
-              className="w-full relative flex items-end justify-start aspect-square z-10 rounded-[3px] overflow-hidden after:w-full after:absolute after:h-full after:-z-[5] after:bg-gradient-to-t to-transparent from-primary"
+              className={`w-full relative flex items-end ${
+                isLanguage ? "justify-end" : "justify-start"
+              } aspect-square z-10 rounded-[3px] overflow-hidden after:w-full after:absolute after:h-full after:-z-[5] after:bg-gradient-to-t to-transparent from-primary`}
             >
               <MainImage
                 src={item.picture}
@@ -239,7 +436,7 @@ const OurServices = () => {
                 loading="lazy"
                 className="absolute w-full h-full object-cover -z-10"
               />
-              <p className="font-medium text-white sm:text-base text-sm leading-[141%] pl-4 pb-4">
+              <p className="font-medium text-white sm:text-base text-sm leading-[141%] px-4 pb-4">
                 {item.title}
               </p>
             </div>
@@ -250,7 +447,7 @@ const OurServices = () => {
         <div id="allServices" className="lg:mt-40 sm:mt-20 mt-8 relative">
           <span className="absolute -z-10 top-1/2 lg:-left-1/2 sm:-left-[70%] -left-[500px] w-[530px] h-[530px] blur-[177px] bg-[#96AEFF]" />
           <ul className="grid w-full gap-6">
-            {data.map((item, itemIdx) => (
+            {(isLanguage ? data.arabic : data.english).map((item, itemIdx) => (
               <li
                 key={itemIdx}
                 className="w-full grid sm:grid-cols-2 gap-3 relative"
@@ -260,6 +457,8 @@ const OurServices = () => {
                     boxShadow: "0px 20.736px 98.496px rgba(201, 203, 204, 0.3)",
                   }}
                   className={`grid  rounded-lg border border-[#F3F4FE] ${
+                    isLanguage && "order-2 justify-items-end"
+                  } ${
                     isSelected === item.title
                       ? "sm:bg-primary bg-[rgba(37,59,110,0.80)]"
                       : "bg-white"
@@ -279,7 +478,9 @@ const OurServices = () => {
                         ? setIsSelected(null)
                         : setIsSelected(item.title)
                     }
-                    className="flex w-full items-center justify-between"
+                    className={`flex w-full items-center justify-between ${
+                      isLanguage && "flex-row-reverse"
+                    }`}
                   >
                     <h1
                       className={`${
@@ -328,13 +529,20 @@ const OurServices = () => {
                     {item.points.map((point, pointIdx) => (
                       <li
                         key={pointIdx}
-                        className="text-white text-sm font-light"
+                        className={`text-white text-sm font-light items-center justify-end flex ${!isLanguage && 'flex-row-reverse'}`}
                       >
-                        {point.title}
+                        {point.title}{" "}
+                        <span
+                          className={`w-[5px] h-[5px] bg-white ${
+                            isLanguage ? "ml-2" : "mr-2"
+                          }  rounded-full flex`}
+                        />
                       </li>
                     ))}
                   </ul>
                 </div>
+
+                {/*  */}
 
                 <div className="sm:grid hidden h-full relative">
                   <MainImage
