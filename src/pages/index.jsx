@@ -47,6 +47,10 @@ export const query = graphql`
           }
           createdAt(formatString: "MMMM DD, YYYY")
           heading
+          headingArabic
+          descriptionArabic {
+            descriptionArabic
+          }
         }
         next {
           createdAt(formatString: "MMMM DD, YYYY", locale: "ar-SA")

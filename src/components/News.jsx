@@ -4,7 +4,11 @@ import React from "react";
 const News = ({ data, isLanguage }) => {
   return (
     <div className="main_padding lg:mt-32 mt-14">
-      <div className={`max-w-[1440px] mx-auto ${isLanguage && 'flex flex-col items-end'}`}>
+      <div
+        className={`max-w-[1440px] mx-auto ${
+          isLanguage && "flex flex-col items-end"
+        }`}
+      >
         <h1 className="text-3xl text-primary font-medium leading-[180%]">
           {isLanguage ? `Taasco ما الجديد في` : "What’s new at Taasco"}
         </h1>
@@ -24,10 +28,12 @@ const News = ({ data, isLanguage }) => {
                     {isLanguage ? item.next?.createdAt : item.node.createdAt}
                   </small>
                   <h3 className="mt-3 font-light text-primary text-2xl  leading-[140%] tracking-[-0.03em] max-w-[320px] line-clamp-2">
-                    {item.node.heading}
+                    {isLanguage ? item.node.headingArabic : item.node.heading}
                   </h3>
                   <p className="mt-3 font-light leading-[137%] text-base tracking-[-0.03em] text-primary max-w-[400px] line-clamp-3">
-                    {item.node.description.description}
+                    {isLanguage
+                      ? item.node.descriptionArabic.descriptionArabic
+                      : item.node.description.description}
                   </p>
 
                   <Link

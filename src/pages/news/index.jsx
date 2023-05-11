@@ -32,7 +32,9 @@ const NewsAndInformation = (props) => {
               <Link
                 to={item.node.id}
                 key={item.node.id}
-                className={`grid hover:scale-105 duration-300 ${isLanguage && "justify-items-end"}`}
+                className={`grid hover:scale-105 duration-300 ${
+                  isLanguage && "justify-items-end"
+                }`}
               >
                 <div className="rounded-[4px] overflow-hidden flex items-center justify-center sm:aspect-[16/10] aspect-[16/8]">
                   <MainImage
@@ -46,10 +48,12 @@ const NewsAndInformation = (props) => {
                   {isLanguage ? item.next?.createdAt : item.node.createdAt}
                 </span>
                 <h4 className="mt-[10px] font-normal text-primary sm:text-lg text-base sm:leading-[140%] leading-[140%] tracking-[-0.04em]">
-                  {item.node.heading}
+                  {isLanguage ? item.node.headingArabic : item.node.heading}
                 </h4>
                 <p className="mt-3 line-clamp-2 font-light text-primary text-[12px] leading-[140%]">
-                  {item.node.description.description}
+                  {isLanguage
+                    ? item.node.descriptionArabic.descriptionArabic
+                    : item.node.description.description}
                 </p>
               </Link>
             ))}
@@ -72,11 +76,15 @@ export const query = graphql`
           description {
             description
           }
+          descriptionArabic {
+            descriptionArabic
+          }
           createdAt(formatString: "MMMM DD, YYYY")
           image {
             url
           }
           heading
+          headingArabic
           contentRichText {
             raw
           }

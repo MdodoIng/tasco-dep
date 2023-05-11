@@ -43,7 +43,7 @@ const options = {
     [BLOCKS.UL_LIST]: (node, children) => {
       return (
         <ul className="font-normal text-xs leading-[150%] text-primary pl-6 list-disc">
-          {children} 
+          {children}
         </ul>
       );
     },
@@ -54,7 +54,7 @@ const SingleNews = (props) => {
   const [isLanguage, setIsLanguage] = useState("");
   const news = props.data.allContentfulNewsAndInfermation.edges.filter(
     (element) => element.node.id === props.id && element
-  )[0].node;
+  )[0];
 
   return (
     <div
@@ -65,15 +65,15 @@ const SingleNews = (props) => {
         <div className=" max-w-[1440px] mx-auto grid sm:grid-cols-2 w-full gap-10">
           <div className={`${isLanguage && "order-2 flex items-end flex-col"}`}>
             <span className="mt-3 bg-lightBlue w-max px-3 py-1 pb-0 rounded-[4px] font-semibold text-[#3056D3] text-[9px]">
-              {news.createdAt}
+              {isLanguage ? news.next?.createdAt : news.node.createdAt}
             </span>
             <h4 className="mt-[8px] font-normal text-primary sm:text-3xl text-2xl sm:leading-[140%] leading-[140%] tracking-[-0.04em] max-w-[480px]">
-              {news.heading}
+              {isLanguage ? news.node.headingArabic : news.node.heading}
             </h4>
             <div className="flex sm:hidden items-center justify-center w-full h-max rounded-[5px] overflow-hidden mt-4">
               <MainImage
-                src={news.image.url}
-                alt={`${news.image.heading} image`}
+                src={news.node.image.url}
+                alt={`${news.node.image.heading} image`}
                 width={500}
                 height={500}
                 loading="lazy"
@@ -81,18 +81,27 @@ const SingleNews = (props) => {
               />
             </div>
             <p className="mt-3 font-light text-xs leading-[150%] text-primary max-w-[500px]">
-              {news.description.description}
+              {isLanguage
+                ? news.node.descriptionArabic.descriptionArabic
+                : news.node.description.description}
             </p>
-            {news.contentRichText && (
-              <div className="mt-3 font-light text-xs leading-[150%] max-w-[500px]">
-                {renderRichText(news.contentRichText, options)}
-              </div>
-            )}
+
+            {isLanguage
+              ? news.node.contentRichTextArabic && (
+                  <div className="mt-3 font-light text-xs leading-[150%] max-w-[500px]">
+                    {renderRichText(news.node.contentRichTextArabic, options)}
+                  </div>
+                )
+              : news.node.contentRichText && (
+                  <div className="mt-3 font-light text-xs leading-[150%] max-w-[500px]">
+                    {renderRichText(news.node.contentRichText, options)}
+                  </div>
+                )}
           </div>
           <div className="sm:flex hidden items-center justify-center w-full h-full rounded-[5px] overflow-hidden max-h-[300px]">
             <MainImage
-              src={news.image.url}
-              alt={`${news.image.heading} image`}
+              src={news.node.image.url}
+              alt={`${news.node.image.heading} image`}
               width={500}
               height={500}
               loading="lazy"
@@ -104,10 +113,17 @@ const SingleNews = (props) => {
         {/* shere */}
 
         <div className="mt-20">
-          <h5 className="text-primary font-normal text-xl "> {isLanguage ? "شاركه على" : "Share it on"}</h5>
-          <div className={`flex items-center justify-start mt-2 gap-3 ${isLanguage && 'flex-row-reverse'}`}>
+          <h5 className="text-primary font-normal text-xl ">
+            {" "}
+            {isLanguage ? "شاركه على" : "Share it on"}
+          </h5>
+          <div
+            className={`flex items-center justify-start mt-2 gap-3 ${
+              isLanguage && "flex-row-reverse"
+            }`}
+          >
             <a
-              href={`whatsapp://send/?text=${news.heading}%20${props.location.href}`}
+              href={`whatsapp://send/?text=${news.node.heading}%20${props.location.href}`}
               target="_blank"
               rel="noreferrer"
               className="w-[38px] h-[38px] bg-primary rounded-[13px] flex items-center justify-center group hover:bg-[#E3ECFF] duration-300"
@@ -177,7 +193,7 @@ const SingleNews = (props) => {
               </svg>
             </a>
             <a
-              href={`http://twitter.com/share?text=${news.heading} goes here&url=${props.location.href} goes 
+              href={`http://twitter.com/share?text=${news.node.heading} goes here&url=${props.location.href} goes 
               here&hashtags=''`}
               target="_blank"
               rel="noreferrer"
@@ -209,7 +225,7 @@ export default SingleNews;
 
 export const query = graphql`
   query {
-    allContentfulNewsAndInfermation(sort: { createdAt: DESC }) {
+    allContentfulNewsAndInfermation {
       edges {
         node {
           id
@@ -224,6 +240,16 @@ export const query = graphql`
           contentRichText {
             raw
           }
+          contentRichTextArabic {
+            raw
+          }
+          headingArabic
+          descriptionArabic {
+            descriptionArabic
+          }
+        }
+        next {
+          createdAt(formatString: "MMMM DD, YYYY", locale: "ar-SA")
         }
       }
     }
