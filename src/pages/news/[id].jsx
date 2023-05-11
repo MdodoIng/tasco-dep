@@ -65,7 +65,7 @@ const SingleNews = (props) => {
         <div className=" max-w-[1440px] mx-auto grid sm:grid-cols-2 w-full gap-10">
           <div className={`${isLanguage && "order-2 flex items-end flex-col"}`}>
             <span className="mt-3 bg-lightBlue w-max px-3 py-1 pb-0 rounded-[4px] font-semibold text-[#3056D3] text-[9px]">
-              {isLanguage ? news.next?.createdAt : news.node.createdAt}
+              {isLanguage ? news.next?.createdAt : news.node?.createdAt}
             </span>
             <h4 className="mt-[8px] font-normal text-primary sm:text-3xl text-2xl sm:leading-[140%] leading-[140%] tracking-[-0.04em] max-w-[480px]">
               {isLanguage ? news.node.headingArabic : news.node.heading}

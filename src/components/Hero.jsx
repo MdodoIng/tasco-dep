@@ -68,7 +68,7 @@ const Hero = ({ isLanguage }) => {
               : content.english.buttonName}
           </Link>
         </div>
-        <div className="w-full h-full  flex items-center justify-end max-sm:min-h-[450px] -mt-20">
+        <div className="w-full h-full  flex items-center justify-end max-sm:min-h-[450px] sm:-mt-20">
           <div className="max-h-[500px] max-w-[500px] relative w-full h-full flex items-center justify-center">
             <ImageBox
               image={image1}
