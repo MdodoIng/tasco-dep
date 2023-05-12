@@ -32,7 +32,7 @@ const ContactUs = ({ isLanguage }) => {
             <label className="grid font-light tracking-[-0.03em] text-base text-primary gap-2 sm:w-[40%]">
                {isLanguage ? "رقم الهاتف المحمول" : "Mobile Number"}
               <input
-                type="number"
+                type="number" 
                 className="outline-none border border-[#B8D4FF] rounded-[5px] bg-transparent py-1 px-2 text-primary caret-primary"
               />
             </label>

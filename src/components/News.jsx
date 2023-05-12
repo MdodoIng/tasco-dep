@@ -13,13 +13,13 @@ const News = ({ data, isLanguage }) => {
           {isLanguage ? `Taasco ما الجديد في` : "What’s new at Taasco"}
         </h1>
         <div
-          className={`mt-8 flex items-center ${
-            isLanguage && "flex-row-reverse"
-          }  justify-between w-full overflow-x-scroll gap-10`}
+          className={`mt-8 sm:grid grid-cols-3 flex  ${
+            isLanguage && "flex-row-reverse flex items-end"
+          }  justify-between w-full overflow-x-scroll gap-10 newsScroll pb-4 max-sm:flex-col `}
         >
           {data.map((item, idx) => (
             <>
-              {idx <= 4 && (
+              {idx <= 2 && (
                 <div
                   key={item.node.id}
                   className={`grid shrink-0 ${isLanguage && "place-items-end"}`}
